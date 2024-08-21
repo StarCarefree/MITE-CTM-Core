@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "mite_ctm",
+  "version": "${version}",
+  "name": "Minecraft Is Too Easy:Cataclysm",
+  "description": "Minecraft Is Too Easy:Cataclysm",
+  "authors": [
+    "MoYStudio",
+    "zirranYa",
+    "Terry_MC",
+    "CHOCOLATE"
+  ],
+  "contact": {
+    "homepage": "moystudio.fun"
+  },
+  "license": "MIT",
+  "icon": "assets/mite_ctm/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "fun.moystudio.mite_ctm.fabric.MITE_CTMFabric"
+    ],
+    "client": [
+      "fun.moystudio.mite_ctm.fabric.client.MITE_CTMFabricClient"
+    ]
+  },
+  "mixins": [
+    "mite_ctm.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.2",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "architectury": ">=13.0.6",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

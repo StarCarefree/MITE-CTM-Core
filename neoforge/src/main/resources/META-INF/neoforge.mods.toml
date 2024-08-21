@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "mite_ctm"
+version = "${version}"
+displayName = "Minecraft Is Too Easy:Cataclysm"
+authors = "MoYStudio, zirranYa, Terry_MC, CHOCOLATE"
+description = '''
+Minecraft Is Too Easy:Cataclysm
+'''
+#logoFile = ""
+
+[[dependencies.mite_ctm]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mite_ctm]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mite_ctm]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.6,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "mite_ctm.mixins.json"
