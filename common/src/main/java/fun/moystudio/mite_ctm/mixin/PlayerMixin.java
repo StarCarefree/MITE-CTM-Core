@@ -1,5 +1,6 @@
 package fun.moystudio.mite_ctm.mixin;
 
+import fun.moystudio.mite_ctm.pubilc_interfaces.IMaxFoodLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -8,15 +9,17 @@ import net.minecraft.world.food.FoodData;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.lang.reflect.InvocationTargetException;
+
 @Mixin(Player.class)
 public abstract class PlayerMixin extends LivingEntity {
-
     @Shadow public int experienceLevel;
 
     @Shadow protected FoodData foodData;
@@ -27,8 +30,9 @@ public abstract class PlayerMixin extends LivingEntity {
 
     @Inject(method = "tick", at = @At("TAIL"))
     public void tickMixin(CallbackInfo ci){
-        this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(6+this.experienceLevel/5*2);
-        this.foodData.setFoodLevel(Math.min(this.foodData.getFoodLevel(),6+this.experienceLevel/5*2));
+        ((IMaxFoodLevel)foodData).setMaxFoodLevel(Math.min(20,6+experienceLevel/5*2));
+        this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue((double)6+experienceLevel/5*2);
+        foodData.setFoodLevel(Math.min(foodData.getFoodLevel(),((IMaxFoodLevel)foodData).getMaxFoodLevel()));
     }
 
     @Inject(method = "getXpNeededForNextLevel",at = @At("HEAD"),cancellable = true)
@@ -42,10 +46,7 @@ public abstract class PlayerMixin extends LivingEntity {
 
     @Inject(method = "aiStep", at = @At("HEAD"))
     public void aiStepMixin(CallbackInfo ci){//每64秒回一滴血（直接用tick算的,mc到底有没有秒计数啊啊啊啊啊啊啊啊啊）
-        if(this.tickCount%(64*20)==0){
-            this.heal(1.0F);
-            System.out.println("Heal!");
-        }
+        if(this.tickCount%(64*20)==0) this.heal(1.0F);
     }
 
     @ModifyArg(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;heal(F)V"),index = 0)
