@@ -8,7 +8,8 @@
   ],
   "mixins": [
     "FoodDataMixin",
-    "PlayerMixin"
+    "PlayerMixin",
+    "ServerPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
