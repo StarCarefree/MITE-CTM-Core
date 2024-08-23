@@ -33,8 +33,8 @@ public abstract class ServerPlayerMixin extends Player {
 
     @Inject(method = "tick", at = @At("TAIL"))
     public void tickMixin(CallbackInfo ci){
-        if(this.isCreative()||this.isSpectator()) {
-            this.sendSystemMessage(Component.nullToEmpty("§4Player <"+this.getGameProfile().getName()+"> tried to change its gamemode to \'"+this.gameMode.toString()+"\'!\nMITE-CTM just change its gamemode back to survival!"));
+        if(this.isCreative()||this.isSpectator()){
+            this.sendSystemMessage(Component.nullToEmpty("§c§l[CHEATING DETECTOR]§4"+this.getGameProfile().getName()+" §cchanged gamemode to "+this.gameMode.getGameModeForPlayer().getName()+"!\n§b§l[MITE-CTM] §cprevented this behavior!"));
             this.setGameMode(GameType.SURVIVAL);
         }
     }

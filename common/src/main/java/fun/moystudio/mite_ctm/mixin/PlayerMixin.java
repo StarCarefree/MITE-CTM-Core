@@ -1,6 +1,7 @@
 package fun.moystudio.mite_ctm.mixin;
 
 import fun.moystudio.mite_ctm.pubilc_interfaces.IMaxFoodLevel;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -21,6 +22,8 @@ public abstract class PlayerMixin extends LivingEntity {
 
     @Shadow protected FoodData foodData;
 
+    @Shadow public abstract FoodData getFoodData();
+
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -29,7 +32,14 @@ public abstract class PlayerMixin extends LivingEntity {
     public void tickMixin(CallbackInfo ci){
         ((IMaxFoodLevel)foodData).setMaxFoodLevel(Math.min(20,6+experienceLevel/5*2));
         this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue((double)6+experienceLevel/5*2);
+        this.getAttributes().getInstance(Attributes.BLOCK_BREAK_SPEED).setBaseValue(1+0.02*experienceLevel);
         foodData.setFoodLevel(Math.min(foodData.getFoodLevel(),((IMaxFoodLevel)foodData).getMaxFoodLevel()));
+        if(foodData.getFoodLevel()==0.0F){
+            this.setSpeed(0.08F);
+        }
+        else{
+            this.setSpeed(0.1F);
+        }
     }
 
     @Inject(method = "getXpNeededForNextLevel",at = @At("HEAD"),cancellable = true)
@@ -49,5 +59,21 @@ public abstract class PlayerMixin extends LivingEntity {
     @ModifyArg(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;heal(F)V"),index = 0)
     public float aiStepMixin2(float par1){//禁用原版回血
         return 0.0F;
+    }
+
+    @Inject(method = "attack" ,at = @At("HEAD"),cancellable = true)
+    public void attackMixin(Entity entity, CallbackInfo ci){//取消攻击
+        if (this.getHealth() <= 1.0F) {
+            ci.cancel();
+        }
+        if (this.getFoodData().getFoodLevel() <= 0) {
+            ci.cancel();
+        }
+    }
+    //破坏就得注册一个新的方块来替代旧的方块并把硬度改为设置的值（直接复制）
+    //要不我去定义里面找用mixin改找不到
+    @ModifyArg(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"),index = 1)
+    public float attackMixin2(float f){//攻击力每级增加0.5%
+        return (float)(f*0.005*this.experienceLevel);
     }
 }
