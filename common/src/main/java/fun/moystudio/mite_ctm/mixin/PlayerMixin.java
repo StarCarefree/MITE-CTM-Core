@@ -1,6 +1,6 @@
 package fun.moystudio.mite_ctm.mixin;
 
-import fun.moystudio.mite_ctm.pubilc_interfaces.IMaxFoodLevel;
+import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -70,8 +70,7 @@ public abstract class PlayerMixin extends LivingEntity {
             ci.cancel();
         }
     }
-    //破坏就得注册一个新的方块来替代旧的方块并把硬度改为设置的值（直接复制）
-    //要不我去定义里面找用mixin改找不到
+
     @ModifyArg(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"),index = 1)
     public float attackMixin2(float f){//攻击力每级增加0.5%
         return (float)(f*0.005*this.experienceLevel);

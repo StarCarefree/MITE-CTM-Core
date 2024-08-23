@@ -1,7 +1,7 @@
 package fun.moystudio.mite_ctm.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import fun.moystudio.mite_ctm.pubilc_interfaces.IMaxFoodLevel;
+import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;

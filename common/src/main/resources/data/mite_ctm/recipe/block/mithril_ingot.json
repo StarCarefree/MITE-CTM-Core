@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "tag":"mite_ctm:mithril_ore"
+    },
+    "result": "mite_ctm:mithril_ingot",
+    "cookingtime": "40"
+}

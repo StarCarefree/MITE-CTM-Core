@@ -1,5 +1,6 @@
 package fun.moystudio.mite_ctm;
 
+import fun.moystudio.mite_ctm.event.ModEvent;
 import fun.moystudio.mite_ctm.item.ModItem;
 
 public final class MITE_CTM {
@@ -8,5 +9,6 @@ public final class MITE_CTM {
     public static void init() {
         System.out.println("[Minecraft Is Too Easy] Initalizing MITE-CTM!");
         ModItem.register();
+        ModEvent.register();
     }
 }
