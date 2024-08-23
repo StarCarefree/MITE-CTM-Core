@@ -9,14 +9,11 @@ import net.minecraft.world.food.FoodData;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.lang.reflect.InvocationTargetException;
 
 @Mixin(Player.class)
 public abstract class PlayerMixin extends LivingEntity {
@@ -46,7 +43,7 @@ public abstract class PlayerMixin extends LivingEntity {
 
     @Inject(method = "aiStep", at = @At("HEAD"))
     public void aiStepMixin(CallbackInfo ci){//每64秒回一滴血（直接用tick算的,mc到底有没有秒计数啊啊啊啊啊啊啊啊啊）
-        if(this.tickCount%(64*20)==0) this.heal(1.0F);
+        if(this.tickCount%(64*20)==0&&this.getHealth()>=this.getAttributes().getBaseValue(Attributes.MAX_HEALTH)*0.5) this.heal(1.0F);
     }
 
     @ModifyArg(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;heal(F)V"),index = 0)

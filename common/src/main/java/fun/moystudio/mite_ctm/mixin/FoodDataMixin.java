@@ -7,7 +7,6 @@ import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(FoodData.class)
 public abstract class FoodDataMixin implements IMaxFoodLevel {
-
     @Unique private int maxFoodLevel=6;
 
     @Override
