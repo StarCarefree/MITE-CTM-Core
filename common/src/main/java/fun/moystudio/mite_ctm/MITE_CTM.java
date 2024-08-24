@@ -9,8 +9,8 @@ public final class MITE_CTM {
 
     public static void init() {
         System.out.println("[Minecraft Is Too Easy] Initalizing MITE-CTM!");
+        ModBlock.register();//一定得在Item前面！！！！！
         ModItem.register();
         ModEvent.register();
-        ModBlock.register();
     }
 }
