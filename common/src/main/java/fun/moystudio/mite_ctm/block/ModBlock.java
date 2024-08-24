@@ -25,7 +25,7 @@ public class ModBlock {
     public static final RegistrySupplier<Block> MITHRIL_BLOCK=registerBlock("mithril_block",()->
             new IngotBlock(5.0F, SoundType.STONE),4);
     public static final RegistrySupplier<Block> MITHRIL_ORE=registerBlock("mithril_ore",()->
-            new OreBlock(3.0F,SoundType.STONE,2,4),4);
+            new OreBlock(3.5F,SoundType.STONE,2,4),4);
     public static void register(){
         BLOCKS.register();
     }
