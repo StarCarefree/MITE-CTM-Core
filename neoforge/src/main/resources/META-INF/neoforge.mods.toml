@@ -11,7 +11,7 @@ authors = "MoYStudio, zirranYa, Terry_MC, CHOCOLATE"
 description = '''
 Minecraft Is Too Easy:Cataclysm
 '''
-#logoFile = ""
+logoFile = "assets/mite_ctm/icon.png"
 
 [[dependencies.mite_ctm]]
 modId = "neoforge"

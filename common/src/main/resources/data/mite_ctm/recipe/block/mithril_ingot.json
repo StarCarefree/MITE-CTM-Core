@@ -4,5 +4,6 @@
         "tag":"mite_ctm:mithril_ore"
     },
     "result": "mite_ctm:mithril_ingot",
-    "cookingtime": "40"
+    "cookingtime": 0,
+    "experience": 40
 }
