@@ -62,7 +62,7 @@ public abstract class HungerRenderMixin {
             }
 
             int n = j - l * 8 - 9;
-            if(Math.ceil(((double)((IMaxFoodLevel)player.getFoodData()).getMaxFoodLevel()/2.0))>l) {
+            if(Math.ceil(((double)((IMaxFoodLevel)player.getFoodData()).getMaxFoodLevel()/2.0))>l) {//判断最大可渲染空饥饿值的部分（甚至他还会倒过来，离谱）
                 guiGraphics.blitSprite(resourceLocation, n, m, 9, 9);
             }
 
