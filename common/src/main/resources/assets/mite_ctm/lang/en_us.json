@@ -3,5 +3,7 @@
   "item.mite_ctm.mithril_nuggets": "Mithril Nuggets",
   "item.mite_ctm.mithril_coin": "Mithril Coin",
   "item.mite_ctm.mithril_chain": "Mithril Chain",
-  "item.mite_ctm.mithril_arrow": "Mithril Arrow"
+  "item.mite_ctm.mithril_arrow": "Mithril Arrow",
+  "block.mite_ctm.mithril_block": "Block of Mithril",
+  "block.mite_ctm.mithril_ore": "Mithril Ore"
 }
