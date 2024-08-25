@@ -18,5 +18,8 @@
   "item.mite_ctm.emerald_chips": "绿宝石碎片",
   "item.mite_ctm.diamond_chips": "钻石碎片",
   "item.mite_ctm.nether_quartz_shard": "下界石英碎片",
-  "item.mite_ctm.glass_shard": "玻璃碎片"
+  "item.mite_ctm.glass_shard": "玻璃碎片",
+
+  "key.mite_ctm.zoom": "缩放视角",
+  "category.mite_ctm.main": "Minecraft Is Too Easy:Cataclysm"
 }

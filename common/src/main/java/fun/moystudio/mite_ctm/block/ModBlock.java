@@ -24,9 +24,9 @@ public class ModBlock {
         return ModItem.ITEMS.register(name,()->new BlockItem(block.get(),new Item.Properties().stacksTo(maxx).arch$tab(CreativeModeTabs.INGREDIENTS)));
     }
     public static final RegistrySupplier<Block> MITHRIL_BLOCK=registerBlock("mithril_block",()->
-            new IngotBlock(7680F, SoundType.STONE),4);
+            new IngotBlock(5F, SoundType.STONE),4);
     public static final RegistrySupplier<Block> MITHRIL_ORE=registerBlock("mithril_ore",()->
-            new OreBlock(350F,SoundType.STONE,2,4),4);
+            new OreBlock(3.5F,SoundType.STONE,2,4),4);
     public static void register(){
         BLOCKS.register();
     }

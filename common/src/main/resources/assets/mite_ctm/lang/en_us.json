@@ -18,5 +18,8 @@
   "item.mite_ctm.emerald_chips": "Emerald Chips",
   "item.mite_ctm.diamond_chips": "Diamond Chips",
   "item.mite_ctm.nether_quartz_shard": "Nether Quartz Shard",
-  "item.mite_ctm.glass_shard": "Glass Shard"
+  "item.mite_ctm.glass_shard": "Glass Shard",
+
+  "key.mite_ctm.zoom": "Zoom",
+  "category.mite_ctm.main": "Minecraft Is Too Easy:Cataclysm"
 }

@@ -1,6 +1,7 @@
 package fun.moystudio.mite_ctm.mixin;
 
 import com.mojang.authlib.GameProfile;
+import dev.architectury.platform.Platform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -33,9 +34,9 @@ public abstract class ServerPlayerMixin extends Player {
 
     @Inject(method = "tick", at = @At("TAIL"))
     public void tickMixin(CallbackInfo ci){//作弊检测
-        if(this.isCreative()||this.isSpectator()){
-//            this.sendSystemMessage(Component.nullToEmpty("§c§l[CHEATING DETECTOR]§4"+this.getGameProfile().getName()+" §cchanged gamemode to "+this.gameMode.getGameModeForPlayer().getName()+"!\n§b§l[MITE-CTM] §cprevented this behavior!"));
-//            this.setGameMode(GameType.SURVIVAL);
+        if((this.isCreative()||this.isSpectator()) && !Platform.isDevelopmentEnvironment()){
+            this.sendSystemMessage(Component.nullToEmpty("§c§l[CHEATING DETECTOR]§4"+this.getGameProfile().getName()+" §cchanged gamemode to "+this.gameMode.getGameModeForPlayer().getName()+"!\n§b§l[MITE-CTM] §cprevented this behavior!"));
+            this.setGameMode(GameType.SURVIVAL);
         }
     }
 
