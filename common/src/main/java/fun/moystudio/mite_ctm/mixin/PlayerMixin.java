@@ -32,7 +32,7 @@ public abstract class PlayerMixin extends LivingEntity {
     public void tickMixin(CallbackInfo ci){
         ((IMaxFoodLevel)foodData).setMaxFoodLevel(Math.min(20,6+experienceLevel/5*2));
         this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue((double)6+experienceLevel/5*2);
-        this.getAttributes().getInstance(Attributes.BLOCK_BREAK_SPEED).setBaseValue(1+0.02*experienceLevel);
+        this.getAttributes().getInstance(Attributes.BLOCK_BREAK_SPEED).setBaseValue((1+0.02*experienceLevel)*0.08);
         foodData.setFoodLevel(Math.min(foodData.getFoodLevel(),((IMaxFoodLevel)foodData).getMaxFoodLevel()));
         if(foodData.getFoodLevel()==0.0F){
             this.setSpeed(0.08F);

@@ -1,0 +1,104 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "alternatives",
+          "conditions": [
+            {
+              "condition": "survives_explosion"
+            }
+          ],
+          "children": [
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.15625
+                }
+              ],
+              "name": "mite_ctm:flint_chips"
+            },
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.05555556
+                }
+              ],
+              "name": "mite_ctm:copper_nuggets"
+            },
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.01851852
+                }
+              ],
+              "name": "mite_ctm:silver_nuggets"
+            },
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.00617284
+                }
+              ],
+              "name": "minecraft:gold_nugget"
+            },
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.00205761
+                }
+              ],
+              "name": "mite_ctm:emerald_chips"
+            },
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.00068589
+                }
+              ],
+              "name": "mite_ctm:diamond_chips"
+            },
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.00022862
+                }
+              ],
+              "name": "mite_ctm:mithril_nuggets"
+            },
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.00011429
+                }
+              ],
+              "name": "minecraft:netherite_scrap"
+            },
+            {
+              "type": "item",
+              "name": "minecraft:gravel"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
