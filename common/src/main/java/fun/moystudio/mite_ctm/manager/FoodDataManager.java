@@ -40,4 +40,8 @@ public class FoodDataManager{
         this.setPtn(ptn);
         this.setIsl(isl);
     }
+
+    public static FoodDataManager create(int ptt,int ptn,int isl){
+        return new FoodDataManager(ptt,ptn,isl);
+    }
 }

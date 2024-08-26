@@ -5,5 +5,5 @@ import net.minecraft.world.food.FoodProperties;
 
 public interface IFoodDataManager {
     FoodDataManager get();
-    FoodProperties set(FoodDataManager foodDataManager);
+    void set(FoodDataManager foodDataManager);
 }

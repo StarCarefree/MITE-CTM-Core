@@ -1,6 +1,7 @@
 package fun.moystudio.mite_ctm.mixin;
 
 import fun.moystudio.mite_ctm.manager.FoodDataManager;
+import fun.moystudio.mite_ctm.properties.FoodDataEnum;
 import fun.moystudio.mite_ctm.pubilc_interface.IFoodDataManager;
 import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
 import net.minecraft.world.food.FoodData;
@@ -12,9 +13,19 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(FoodData.class)
-public abstract class FoodDataMixin implements IMaxFoodLevel {
+public abstract class FoodDataMixin implements IMaxFoodLevel, IFoodDataManager {
     @Unique private int maxFoodLevel=6;//最大饥饿值
     @Unique private FoodDataManager foodDataManager=new FoodDataManager(160000,160000,0);
+
+    @Override
+    public FoodDataManager get(){
+        return foodDataManager;
+    }
+
+    @Override
+    public void set(FoodDataManager foodDataManager){
+        this.foodDataManager=foodDataManager;
+    }
 
     @Override
     public int getMaxFoodLevel() {
@@ -27,11 +38,12 @@ public abstract class FoodDataMixin implements IMaxFoodLevel {
 
     @Inject(method = "eat(Lnet/minecraft/world/food/FoodProperties;)V", at = @At("TAIL"))
     public void eat(FoodProperties foodProperties, CallbackInfo ci){
-//        foodDataManager.setPtt(foodDataManager.getPtt()+((IFoodDataManager)foodProperties).get().getPtt());
-//        foodDataManager.setPtn(foodDataManager.getPtn()+((IFoodDataManager)foodProperties).get().getPtn());
-//        foodDataManager.setIsl(foodDataManager.getIsl()+((IFoodDataManager)foodProperties).get().getIsl());
-        //WHY??????????????????????????????????????
+        for(FoodDataEnum now:FoodDataEnum.values()){
+            if(foodProperties.usingConvertsTo().get().getItem().equals(now.get().originalItem)){
+                foodDataManager.setPtt(foodDataManager.getPtt()-now.get().foodDataManager.getPtt());
+                foodDataManager.setPtn(foodDataManager.getPtn()-now.get().foodDataManager.getPtn());
+                foodDataManager.setIsl(foodDataManager.getIsl()-now.get().foodDataManager.getIsl());
+            }
+        }
     }
-
-
 }

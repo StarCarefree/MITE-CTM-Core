@@ -22,6 +22,8 @@
   "item.mite_ctm.glass_shard": "Glass Shard",
 
   "key.mite_ctm.zoom": "Zoom",
-  "category.mite_ctm.main": "Minecraft Is Too Easy:Cataclysm"
+  "category.mite_ctm.main": "Minecraft Is Too Easy:Cataclysm",
+
+  "chat.mite_ctm.cheating": "§c§l[CHEATING DETECTOR]§4%1$s §cchanged gamemode to %2$s!\n§b§l[MITE-CTM] §cprevented this behavior!"
 
 }

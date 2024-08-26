@@ -18,7 +18,7 @@ public class ModItem {
     public static final RegistrySupplier<Item> MITHRIL_ARROW=ITEMS.register("mithril_arrow",()->
             new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银箭
     public static final RegistrySupplier<Item> RAW_MITHRIL=ITEMS.register("raw_mithril",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//粗秘银
+            new Item(new Item.Properties().stacksTo(4).arch$tab(CreativeModeTabs.INGREDIENTS)));//粗秘银
 
     public static final RegistrySupplier<Item> COPPER_NUGGETS=ITEMS.register("copper_nuggets",()->
             new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//铜粒
@@ -43,6 +43,9 @@ public class ModItem {
             new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//下界石英碎片
     public static final RegistrySupplier<Item> GLASS_SHARD=ITEMS.register("glass_shard",()->
             new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//燧石碎片
+
+    public static final RegistrySupplier<Item> BILIBILI_COIN=ITEMS.register("bilibili_coin",()->
+            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//币（？）
 
     public static void register(){
         ITEMS.register();

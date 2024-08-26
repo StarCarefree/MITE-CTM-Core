@@ -27,23 +27,16 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
 
     @Shadow public abstract FoodData getFoodData();
 
-    @Unique FoodDataManager foodDataManager=new FoodDataManager(160000,160000,0);
-
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
-    }
-
-    @Override
-    public FoodDataManager get(){
-        return foodDataManager;
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
     public void tickMixin(CallbackInfo ci){
         ((IMaxFoodLevel)foodData).setMaxFoodLevel(Math.min(20,6+experienceLevel/5*2));
-        foodDataManager.setIsl(foodDataManager.getIsl()-1);//均为每tick降低1（每分钟降低1200）
-        foodDataManager.setPtt(foodDataManager.getPtt()-1);//均为每tick降低1（每分钟降低1200）
-        foodDataManager.setPtn(foodDataManager.getPtn()-1);//均为每tick降低1（每分钟降低1200）
+        ((IFoodDataManager)foodData).get().setIsl(((IFoodDataManager)foodData).get().getIsl()-1);//均为每tick降低1（每分钟降低1200）
+        ((IFoodDataManager)foodData).get().setPtt(((IFoodDataManager)foodData).get().getPtt()-1);//均为每tick降低1（每分钟降低1200）
+        ((IFoodDataManager)foodData).get().setPtn(((IFoodDataManager)foodData).get().getPtn()-1);//均为每tick降低1（每分钟降低1200）
         this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(Math.min(20,6+experienceLevel/5*2));
         this.getAttributes().getInstance(Attributes.BLOCK_BREAK_SPEED).setBaseValue(1+0.02*experienceLevel);
         foodData.setFoodLevel(Math.min(foodData.getFoodLevel(),((IMaxFoodLevel)foodData).getMaxFoodLevel()));

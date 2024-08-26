@@ -1,7 +1,7 @@
 {
     "type": "smelting",
     "cookingtime": 200,
-    "experience": 40.0,
+    "experience": 0.7,
     "group": "raw_mithril",
     "ingredient": {
         "item": "mite_ctm:raw_mithril"

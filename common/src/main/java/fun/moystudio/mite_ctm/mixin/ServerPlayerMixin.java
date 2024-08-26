@@ -35,7 +35,7 @@ public abstract class ServerPlayerMixin extends Player {
     @Inject(method = "tick", at = @At("TAIL"))
     public void tickMixin(CallbackInfo ci){//作弊检测
         if((this.isCreative()||this.isSpectator()) && !Platform.isDevelopmentEnvironment()){
-            this.sendSystemMessage(Component.nullToEmpty("§c§l[CHEATING DETECTOR]§4"+this.getGameProfile().getName()+" §cchanged gamemode to "+this.gameMode.getGameModeForPlayer().getName()+"!\n§b§l[MITE-CTM] §cprevented this behavior!"));
+            this.sendSystemMessage(Component.translatable("chat.mite_ctm.cheating",this.getGameProfile().getName(),this.gameMode.getGameModeForPlayer().getName()));
             this.setGameMode(GameType.SURVIVAL);
         }
     }
