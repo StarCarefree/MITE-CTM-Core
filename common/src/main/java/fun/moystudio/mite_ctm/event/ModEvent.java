@@ -1,8 +1,6 @@
 package fun.moystudio.mite_ctm.event;
 
-import dev.architectury.event.events.client.ClientTickEvent;
-import fun.moystudio.mite_ctm.MITE_CTM;
-import fun.moystudio.mite_ctm.keymapping.ModKeyMapping;
+import dev.architectury.event.events.common.TickEvent;
 
 public class ModEvent {
     public static void register() {

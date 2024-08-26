@@ -2,9 +2,9 @@
     "type": "smelting",
     "cookingtime": 200,
     "experience": 40.0,
-    "group": "mithril_ore",
+    "group": "raw_mithril",
     "ingredient": {
-        "item": "mite_ctm:mithril_ore"
+        "item": "mite_ctm:raw_mithril"
     },
     "result": {
         "id": "mite_ctm:mithril_ingot"

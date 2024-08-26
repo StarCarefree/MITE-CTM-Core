@@ -1,5 +1,7 @@
 package fun.moystudio.mite_ctm.mixin;
 
+import fun.moystudio.mite_ctm.manager.FoodDataManager;
+import fun.moystudio.mite_ctm.pubilc_interface.IFoodDataManager;
 import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -10,6 +12,7 @@ import net.minecraft.world.food.FoodData;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -17,24 +20,35 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
-public abstract class PlayerMixin extends LivingEntity {
+public abstract class PlayerMixin extends LivingEntity implements IFoodDataManager {
     @Shadow public int experienceLevel;
 
     @Shadow protected FoodData foodData;
 
     @Shadow public abstract FoodData getFoodData();
 
+    @Unique FoodDataManager foodDataManager=new FoodDataManager(160000,160000,0);
+
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public FoodDataManager get(){
+        return foodDataManager;
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
     public void tickMixin(CallbackInfo ci){
         ((IMaxFoodLevel)foodData).setMaxFoodLevel(Math.min(20,6+experienceLevel/5*2));
-        this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue((double)6+experienceLevel/5*2);
+        foodDataManager.setIsl(foodDataManager.getIsl()-1);//均为每tick降低1（每分钟降低1200）
+        foodDataManager.setPtt(foodDataManager.getPtt()-1);//均为每tick降低1（每分钟降低1200）
+        foodDataManager.setPtn(foodDataManager.getPtn()-1);//均为每tick降低1（每分钟降低1200）
+        this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(Math.min(20,6+experienceLevel/5*2));
         this.getAttributes().getInstance(Attributes.BLOCK_BREAK_SPEED).setBaseValue(1+0.02*experienceLevel);
         foodData.setFoodLevel(Math.min(foodData.getFoodLevel(),((IMaxFoodLevel)foodData).getMaxFoodLevel()));
-        if(foodData.getFoodLevel()==0.0F){
+
+        if(foodData.getFoodLevel()==0F){
             this.setSpeed(0.08F);
         }
         else{

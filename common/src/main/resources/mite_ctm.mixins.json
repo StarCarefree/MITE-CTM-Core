@@ -9,6 +9,8 @@
   ],
   "mixins": [
     "FoodDataMixin",
+    "FoodPropertiesMixin",
+    "FoodPropertiesMixin$Builder",
     "PlayerMixin",
     "ServerPlayerMixin"
   ],

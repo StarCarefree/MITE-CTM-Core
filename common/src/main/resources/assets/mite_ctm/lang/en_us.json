@@ -5,6 +5,7 @@
   "item.mite_ctm.mithril_arrow": "Mithril Arrow",
   "block.mite_ctm.mithril_block": "Block of Mithril",
   "block.mite_ctm.mithril_ore": "Mithril Ore",
+  "item.mite_ctm.raw_mithril": "Raw Mithril",
 
   "item.mite_ctm.copper_nuggets": "Copper Nuggets",
   "item.mite_ctm.silver_nuggets": "Silver Nuggets",
@@ -22,4 +23,5 @@
 
   "key.mite_ctm.zoom": "Zoom",
   "category.mite_ctm.main": "Minecraft Is Too Easy:Cataclysm"
+
 }

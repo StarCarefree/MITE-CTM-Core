@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mite_ctm:mithril_ore"
+          "name": "mite_ctm:raw_mithril"
         }
       ],
       "rolls": 1.0
