@@ -1,9 +1,9 @@
 package fun.moystudio.mite_ctm.pubilc_interface;
 
 import fun.moystudio.mite_ctm.manager.FoodDataManager;
-import fun.moystudio.mite_ctm.mixin.FoodPropertiesMixin;
+import net.minecraft.world.food.FoodProperties;
 
 public interface IFoodDataManager {
     FoodDataManager get();
-    FoodPropertiesMixin set(FoodDataManager foodDataManager);
+    FoodProperties set(FoodDataManager foodDataManager);
 }
