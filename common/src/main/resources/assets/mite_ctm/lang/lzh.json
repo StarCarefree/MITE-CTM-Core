@@ -1,0 +1,22 @@
+{
+  "item.mite_ctm.mithril_ingot": "秘银锭",
+  "item.mite_ctm.mithril_coin": "秘银币",
+  "item.mite_ctm.mithril_chain": "秘银锁",
+  "item.mite_ctm.mithril_arrow": "秘银矢",
+  "block.mite_ctm.mithril_block": "秘银块",
+  "block.mite_ctm.mithril_ore": "秘银石",
+  "item.mite_ctm.copper_nuggets": "铜粒",
+  "item.mite_ctm.silver_nuggets": "银粒",
+  "item.mite_ctm.iron_nuggets": "铁粒",
+  "item.mite_ctm.ancient_metal_nuggets": "太古金粒",
+  "item.mite_ctm.mithril_nuggets": "秘银粒",
+  "item.mite_ctm.adamantium_nuggets": "艾德曼粒",
+  "item.mite_ctm.flint_chips": "燧石片",
+  "item.mite_ctm.obsidian_chips": "黑曜石片",
+  "item.mite_ctm.emerald_chips": "绿宝石片",
+  "item.mite_ctm.diamond_chips": "钻石片",
+  "item.mite_ctm.nether_quartz_shard": "下界石英片",
+  "item.mite_ctm.glass_shard": "玻璃片",
+  "key.mite_ctm.zoom": "缩置视角",
+  "category.mite_ctm.main": "Minecraft Is Too Easy：灾变之变"
+}
