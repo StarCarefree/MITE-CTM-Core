@@ -5,6 +5,7 @@
   "item.mite_ctm.mithril_arrow": "秘银矢",
   "block.mite_ctm.mithril_block": "秘银块",
   "block.mite_ctm.mithril_ore": "秘银石",
+  "item.mite_ctm.raw_mithril": "大秘银",
   "item.mite_ctm.copper_nuggets": "铜粒",
   "item.mite_ctm.silver_nuggets": "银粒",
   "item.mite_ctm.iron_nuggets": "铁粒",
@@ -18,5 +19,6 @@
   "item.mite_ctm.nether_quartz_shard": "下界石英片",
   "item.mite_ctm.glass_shard": "玻璃片",
   "key.mite_ctm.zoom": "缩置视角",
-  "category.mite_ctm.main": "Minecraft Is Too Easy：灾变"
+  "category.mite_ctm.main": "Minecraft Is Too Easy：灾变",
+  "chat.mite_ctm.cheating": "§c§l[为弊验功器]§4%1$s §c试以戏一概转为 %2$s！\n§b§l[MITE-CTM] §c已止之！"
 }
