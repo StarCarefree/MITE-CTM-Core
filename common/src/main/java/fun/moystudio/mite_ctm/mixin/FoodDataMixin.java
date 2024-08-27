@@ -4,6 +4,7 @@ import fun.moystudio.mite_ctm.manager.FoodDataManager;
 import fun.moystudio.mite_ctm.properties.FoodDataEnum;
 import fun.moystudio.mite_ctm.pubilc_interface.IFoodDataManager;
 import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.food.FoodProperties;
 import org.spongepowered.asm.mixin.Mixin;
@@ -39,10 +40,11 @@ public abstract class FoodDataMixin implements IMaxFoodLevel, IFoodDataManager {
     @Inject(method = "eat(Lnet/minecraft/world/food/FoodProperties;)V", at = @At("TAIL"))
     public void eat(FoodProperties foodProperties, CallbackInfo ci){
         for(FoodDataEnum now:FoodDataEnum.values()){
-            if(foodProperties.usingConvertsTo().get().getItem().equals(now.get().originalItem)){
+            if(foodProperties.equals(now.get().originalItem.components().get(DataComponents.FOOD))){
                 foodDataManager.setPtt(foodDataManager.getPtt()-now.get().foodDataManager.getPtt());
                 foodDataManager.setPtn(foodDataManager.getPtn()-now.get().foodDataManager.getPtn());
                 foodDataManager.setIsl(foodDataManager.getIsl()-now.get().foodDataManager.getIsl());
+                break;
             }
         }
     }

@@ -10,6 +10,8 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+
 import java.util.function.Supplier;
 
 public class ModBlock {
@@ -26,6 +28,7 @@ public class ModBlock {
             new IngotBlock(5F, SoundType.STONE),4);
     public static final RegistrySupplier<Block> MITHRIL_ORE=registerBlock("mithril_ore",()->
             new OreBlock(3.5F,SoundType.STONE,2,4),4);
+    
     public static void register(){
         BLOCKS.register();
     }
