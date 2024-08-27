@@ -2,6 +2,7 @@ package fun.moystudio.mite_ctm;
 
 import dev.architectury.platform.Platform;
 import fun.moystudio.mite_ctm.block.ModBlock;
+import fun.moystudio.mite_ctm.effect.ModEffect;
 import fun.moystudio.mite_ctm.event.ModEvent;
 import fun.moystudio.mite_ctm.feature.ModPlacedFeature;
 import fun.moystudio.mite_ctm.item.ModFood;
@@ -16,6 +17,7 @@ public final class MITE_CTM {
     public static Logger LOGGER=LogManager.getLogger("Minecraft Is Too Easy:Cataclysm");
     public static void init() {
         LOGGER.info("Initalizing MITE-CTM!");
+        ModEffect.register();
         ModEvent.register();//一定得在Block前面！！！！！
         ModBlock.register();//一定得在Item前面！！！！！
         ModFood.register();//一定得在Item前面！！！！！

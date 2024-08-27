@@ -41,9 +41,9 @@ public abstract class FoodDataMixin implements IMaxFoodLevel, IFoodDataManager {
     public void eat(FoodProperties foodProperties, CallbackInfo ci){
         for(FoodDataEnum now:FoodDataEnum.values()){
             if(foodProperties.equals(now.get().originalItem.components().get(DataComponents.FOOD))){
-                foodDataManager.setPtt(foodDataManager.getPtt()-now.get().foodDataManager.getPtt());
-                foodDataManager.setPtn(foodDataManager.getPtn()-now.get().foodDataManager.getPtn());
-                foodDataManager.setIsl(foodDataManager.getIsl()-now.get().foodDataManager.getIsl());
+                foodDataManager.setPtt(foodDataManager.getPtt()+now.get().foodDataManager.getPtt());
+                foodDataManager.setPtn(foodDataManager.getPtn()+now.get().foodDataManager.getPtn());
+                foodDataManager.setIsl(foodDataManager.getIsl()+now.get().foodDataManager.getIsl());
                 break;
             }
         }

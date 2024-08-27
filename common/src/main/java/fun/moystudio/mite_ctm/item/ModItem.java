@@ -6,15 +6,59 @@ import fun.moystudio.mite_ctm.MITE_CTM;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 
 public class ModItem {
     public static final DeferredRegister<Item> ITEMS=DeferredRegister.create(MITE_CTM.MOD_ID, Registries.ITEM);
-    public static final RegistrySupplier<Item> MITHRIL_INGOT=ITEMS.register("mithril_ingot",()->
-            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银锭
+
     public static final RegistrySupplier<Item> MITHRIL_CHAIN=ITEMS.register("mithril_chain",()->
             new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银锁链
+    public static final RegistrySupplier<Item> COPPER_CHAIN=ITEMS.register("copper_chain",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//铜锁链
+    public static final RegistrySupplier<Item> GOLDEN_CHAIN=ITEMS.register("golden_chain",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//金锁链
+    public static final RegistrySupplier<Item> RUSTED_iron_CHAIN=ITEMS.register("rusted_iron_chain",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//铁锈锁链
+    public static final RegistrySupplier<Item> IRON_CHAIN=ITEMS.register("iron_chain",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//铁锁链
+    public static final RegistrySupplier<Item> ANCIENT_METAL_CHAIN=ITEMS.register("ancient_metal_chain",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//远古金属锁链
+    public static final RegistrySupplier<Item> ADAMANTIUM_CHAIN=ITEMS.register("adamantium_chain",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//艾德曼锁链
+
+
     public static final RegistrySupplier<Item> MITHRIL_ARROW=ITEMS.register("mithril_arrow",()->
             new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银箭
+    public static final RegistrySupplier<Item> FLINT_ARROW=ITEMS.register("flint_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//燧石箭
+    public static final RegistrySupplier<Item> OBSIDIAN_ARROW=ITEMS.register("obsidian_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//黑曜石箭
+    public static final RegistrySupplier<Item> COPPER_ARROW=ITEMS.register("copper_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//铜箭
+    public static final RegistrySupplier<Item> SILVER_ARROW=ITEMS.register("silver_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//银箭
+    public static final RegistrySupplier<Item> GOLDEN_ARROW=ITEMS.register("golden_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//金箭
+    public static final RegistrySupplier<Item> RUSTED_IRON_ARROW=ITEMS.register("rusted_iron_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//锈铁箭
+    public static final RegistrySupplier<Item> IRON_ARROW=ITEMS.register("iron_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//铁箭
+    public static final RegistrySupplier<Item> ANCIENT_METAL_ARROW=ITEMS.register("ancient_metal_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//远古金属箭
+    public static final RegistrySupplier<Item> ADAMANTIUM_ARROW=ITEMS.register("adamantium_arrow",()->
+            new Item(new Item.Properties().stacksTo(16).arch$tab(CreativeModeTabs.INGREDIENTS)));//艾德曼箭
+
+
+    public static final RegistrySupplier<Item> MITHRIL_INGOT=ITEMS.register("mithril_ingot",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银锭
+    public static final RegistrySupplier<Item> COPPER_INGOT=ITEMS.register("copper_ingot",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//铜锭
+    public static final RegistrySupplier<Item> SILVER_INGOT=ITEMS.register("silver_ingot",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//银锭
+    public static final RegistrySupplier<Item> ANCIENT_METAL=ITEMS.register("ancient_metal",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//远古金属锭
+    public static final RegistrySupplier<Item> ADAMANTIUM_INGOT=ITEMS.register("adamantium_ingot",()->
+            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//艾德曼锭
 
 
     public static final RegistrySupplier<Item> COPPER_COIN=ITEMS.register("copper_coin",()->
@@ -29,7 +73,7 @@ public class ModItem {
             new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//远古金属币
     public static final RegistrySupplier<Item> MITHRIL_COIN=ITEMS.register("mithril_coin",()->
             new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银币
-    public static final RegistrySupplier<Item> ADAMANTIUM_COIN=ITEMS.register("adamandium_coin",()->
+    public static final RegistrySupplier<Item> ADAMANTIUM_COIN=ITEMS.register("adamantium_coin",()->
             new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//艾德曼币
     
     
@@ -65,7 +109,21 @@ public class ModItem {
     public static final RegistrySupplier<Item> NETHER_QUARTZ_SHARD=ITEMS.register("nether_quartz_shard",()->
             new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//下界石英碎片
     public static final RegistrySupplier<Item> GLASS_SHARD=ITEMS.register("glass_shard",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//燧石碎片
+            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//玻璃碎片
+
+
+    public static final RegistrySupplier<Item> COPPER_BUCKET=ITEMS.register("copper_bucket",()->
+            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//铜桶
+    public static final RegistrySupplier<Item> SILVER_BUCKET=ITEMS.register("silver_bucket",()->
+            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//银桶
+    public static final RegistrySupplier<Item> GOLDEN_BUCKET=ITEMS.register("golden_bucket",()->
+            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//金桶
+    public static final RegistrySupplier<Item> ANCIENT_METAL_BUCKET=ITEMS.register("ancient_metal_bucket",()->
+            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//远古金属桶
+    public static final RegistrySupplier<Item> MITHRIL_BUCKET=ITEMS.register("mithril_bucket",()->
+            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银桶
+    public static final RegistrySupplier<Item> ADAMANTIUM_BUCKET=ITEMS.register("adamantium_bucket",()->
+            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//艾德曼桶
 
 
     public static final RegistrySupplier<Item> BILIBILI_COIN=ITEMS.register("bilibili_coin",()->

@@ -1,8 +1,10 @@
 package fun.moystudio.mite_ctm.mixin;
 
-import fun.moystudio.mite_ctm.manager.FoodDataManager;
+import fun.moystudio.mite_ctm.MITE_CTM;
+import fun.moystudio.mite_ctm.effect.ModEffect;
 import fun.moystudio.mite_ctm.pubilc_interface.IFoodDataManager;
 import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -10,9 +12,10 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.level.Level;
+import org.slf4j.Logger;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -27,6 +30,8 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
 
     @Shadow public abstract FoodData getFoodData();
 
+    @Shadow @Final private static Logger LOGGER;
+
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -40,12 +45,46 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
         this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(Math.min(20,6+experienceLevel/5*2));
         this.getAttributes().getInstance(Attributes.BLOCK_BREAK_SPEED).setBaseValue(1+0.02*experienceLevel);
         foodData.setFoodLevel(Math.min(foodData.getFoodLevel(),((IMaxFoodLevel)foodData).getMaxFoodLevel()));
-
         if(foodData.getFoodLevel()==0F){
             this.setSpeed(0.08F);
         }
         else{
             this.setSpeed(0.1F);
+        }
+        if(((IFoodDataManager)foodData).get().getIsl()>=48000){
+            if(((IFoodDataManager)foodData).get().getIsl()>=96000){
+                if(((IFoodDataManager)foodData).get().getIsl()>=144000){
+                    if(this.hasEffect(ModEffect.INSULIN_RESISTANCE)&&this.getEffect(ModEffect.INSULIN_RESISTANCE).getAmplifier()!=2){
+                        this.removeEffect(ModEffect.INSULIN_RESISTANCE);
+                    }
+                    this.addEffect(new MobEffectInstance(ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),2));
+                    LOGGER.info("AddIsl");
+                }
+                else{
+                    if(this.hasEffect(ModEffect.INSULIN_RESISTANCE)&&this.getEffect(ModEffect.INSULIN_RESISTANCE).getAmplifier()!=1){
+                        this.removeEffect(ModEffect.INSULIN_RESISTANCE);
+                    }
+                    this.addEffect(new MobEffectInstance(ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),1));
+                    LOGGER.info("AddIsl");
+                }
+            }
+            else{
+                if(this.hasEffect(ModEffect.INSULIN_RESISTANCE)&&this.getEffect(ModEffect.INSULIN_RESISTANCE).getAmplifier()!=0){
+                    this.removeEffect(ModEffect.INSULIN_RESISTANCE);
+                }
+                this.addEffect(new MobEffectInstance(ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl()));
+                LOGGER.info("AddIsl");
+            }
+        }
+        if(((IFoodDataManager)foodData).get().getPtt()<=160000*0.05||((IFoodDataManager)foodData).get().getPtn()<=160000*0.05){
+            if(!this.hasEffect(ModEffect.MALNOURISHED)){
+                this.addEffect(new MobEffectInstance(ModEffect.MALNOURISHED, MobEffectInstance.INFINITE_DURATION));
+            }
+        }
+        else{
+            if(this.hasEffect(ModEffect.MALNOURISHED)) {
+                this.removeEffect(ModEffect.MALNOURISHED);
+            }
         }
     }
 
@@ -60,7 +99,12 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
 
     @Inject(method = "aiStep", at = @At("HEAD"))
     public void aiStepMixin(CallbackInfo ci){//每64秒回一滴血（直接用tick算的,mc到底有没有秒计数啊啊啊啊啊啊啊啊啊）
-        if(this.tickCount%(64*20)==0&&this.getHealth()>=this.getAttributes().getBaseValue(Attributes.MAX_HEALTH)*0.5) this.heal(1.0F);
+        if(this.tickCount%(64*20)==0&&this.foodData.getFoodLevel()>=((IMaxFoodLevel)this.foodData).getMaxFoodLevel()*0.5&&!this.hasEffect(ModEffect.MALNOURISHED)){
+            this.heal(1.0F);
+        }
+        else if(this.tickCount%(256*20)==0&&this.foodData.getFoodLevel()>=((IMaxFoodLevel)this.foodData).getMaxFoodLevel()*0.5&&this.hasEffect(ModEffect.MALNOURISHED)){
+            this.heal(1.0F);
+        }
     }
 
     @ModifyArg(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;heal(F)V"),index = 0)

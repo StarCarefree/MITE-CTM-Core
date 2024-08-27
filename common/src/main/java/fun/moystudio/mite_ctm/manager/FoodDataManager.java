@@ -4,6 +4,7 @@ public class FoodDataManager{
     private int ptt=160000;
     private int ptn=160000;
     private int isl=0;
+    private int lastisl=0;
 
     public int getIsl() {
         return isl;
@@ -17,6 +18,10 @@ public class FoodDataManager{
         return ptt;
     }
 
+    public int getLastisl() {
+        return lastisl;
+    }
+
     public void setPtt(int ptt) {
         this.ptt = Math.max(0,Math.min(160000,ptt));
     }
@@ -26,6 +31,7 @@ public class FoodDataManager{
     }
 
     public void setIsl(int isl) {
+        this.lastisl=this.isl;
         this.isl = Math.max(0,Math.min(192000,isl));
     }
 
