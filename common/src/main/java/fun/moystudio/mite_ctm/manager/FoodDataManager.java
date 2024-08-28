@@ -41,13 +41,13 @@ public class FoodDataManager{
         this.isl=0;
     }
 
-    public FoodDataManager(int ptt,int ptn,int isl){
-        this.setPtt(ptt);
+    public FoodDataManager(int ptn,int ptt,int isl){
         this.setPtn(ptn);
+        this.setPtt(ptt);
         this.setIsl(isl);
     }
 
-    public static FoodDataManager create(int ptt,int ptn,int isl){
-        return new FoodDataManager(ptt,ptn,isl);
+    public static FoodDataManager create(int ptn,int ptt,int isl){
+        return new FoodDataManager(ptn,ptt,isl);
     }
 }

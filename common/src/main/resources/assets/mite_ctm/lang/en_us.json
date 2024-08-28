@@ -102,6 +102,8 @@
 
   "chat.mite_ctm.cheating": "§c§l[CHEATING DETECTOR]§a%1$s §cchanged gamemode to %2$s!\n§b§l[MITE-CTM] §cprevented this behavior!",
   "command.mite_ctm.stats": "§b§l[MITE-CTM]Game Stats:\n§aPlayer Name:%s\n§cUUID:%s\n§7----------------\n§6Experience Level:%s\n§6Total Experience:%s\n§7----------------\n§2Phytonutrients:%s\n§eProtein:%s",
+  "gui.mite_ctm.difficulty": "Extreme",
+  "gui.mite_ctm.difficulty.info": "Don't you think Minecraft is TOO EASY? We made it \"a little\" harder. Good Luck!",
 
   "item.mite_ctm.bilibili_coin": "§d§lBiliBili §r§dHappy Coin"
 }

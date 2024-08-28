@@ -1,0 +1,23 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+      "N",
+      "S",
+      "F"
+    ],
+    "key": {
+      "N": {
+        "item": "mite_ctm:flint_chips"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "F": {
+        "item": "minecraft:feather"
+      }
+    },
+    "result": {
+      "count": 1,
+      "id": "mite_ctm:flint_arrow"
+    }
+  }

@@ -1,0 +1,17 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+      " N ",
+      "N N",
+      " N "
+    ],
+    "key": {
+      "N": {
+        "item": "mite_ctm:adamantium_nuggets"
+      }
+    },
+    "result": {
+      "count": 1,
+      "id": "mite_ctm:adamantium_chain"
+    }
+  }

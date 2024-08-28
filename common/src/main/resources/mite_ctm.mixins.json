@@ -4,13 +4,17 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
+    "CreateWorldScreenMixin",
+    "CreateWorldScreenMixin$CreateWorldScreenGameTabMixin",
     "GameRendererMixin",
     "HungerRenderMixin"
   ],
   "mixins": [
+    "DifficultyMixin",
     "FoodDataMixin",
     "PlayerMixin",
-    "ServerPlayerMixin"
+    "ServerPlayerMixin",
+    "WorldCreationUiStateMixin"
   ],
   "injectors": {
     "defaultRequire": 1

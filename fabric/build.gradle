@@ -7,6 +7,12 @@ architectury {
     fabric()
 }
 
+loom {
+    if (file("src/main/resources/mite_ctm.accesswidener").exists()) {
+        accessWidenerPath=file("src/main/resources/mite_ctm.accesswidener")
+    }
+}
+
 configurations {
     common {
         canBeResolved = true

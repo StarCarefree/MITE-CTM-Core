@@ -1,0 +1,18 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:copper_nuggets"},
+      {"item": "mite_ctm:copper_nuggets"},
+      {"item": "mite_ctm:copper_nuggets"},
+      {"item": "mite_ctm:copper_nuggets"},
+      {"item": "mite_ctm:copper_nuggets"},
+      {"item": "mite_ctm:copper_nuggets"},
+      {"item": "mite_ctm:copper_nuggets"},
+      {"item": "mite_ctm:copper_nuggets"},
+      {"item": "mite_ctm:copper_nuggets"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "minecraft:copper_ingot"
+    }
+  }

@@ -1,0 +1,13 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:flint_chips"},
+      {"item": "mite_ctm:flint_chips"},
+      {"item": "mite_ctm:flint_chips"},
+      {"item": "mite_ctm:flint_chips"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "minecraft:flint"
+    }
+  }

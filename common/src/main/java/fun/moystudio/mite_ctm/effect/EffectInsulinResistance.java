@@ -38,6 +38,6 @@ public class EffectInsulinResistance extends MobEffect {
 
     @Override
     public boolean shouldApplyEffectTickThisTick(int i, int j){
-        return i>0;
+        return i>=5;
     }
 }

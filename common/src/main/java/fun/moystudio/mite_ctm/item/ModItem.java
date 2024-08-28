@@ -17,7 +17,7 @@ public class ModItem {
             new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//铜锁链
     public static final RegistrySupplier<Item> GOLDEN_CHAIN=ITEMS.register("golden_chain",()->
             new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//金锁链
-    public static final RegistrySupplier<Item> RUSTED_iron_CHAIN=ITEMS.register("rusted_iron_chain",()->
+    public static final RegistrySupplier<Item> RUSTED_IRON_CHAIN=ITEMS.register("rusted_iron_chain",()->
             new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//铁锈锁链
     public static final RegistrySupplier<Item> IRON_CHAIN=ITEMS.register("iron_chain",()->
             new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//铁锁链

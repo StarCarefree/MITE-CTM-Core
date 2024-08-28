@@ -1,0 +1,18 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:obsidian_chips"},
+      {"item": "mite_ctm:obsidian_chips"},
+      {"item": "mite_ctm:obsidian_chips"},
+      {"item": "mite_ctm:obsidian_chips"},
+      {"item": "mite_ctm:obsidian_chips"},
+      {"item": "mite_ctm:obsidian_chips"},
+      {"item": "mite_ctm:obsidian_chips"},
+      {"item": "mite_ctm:obsidian_chips"},
+      {"item": "mite_ctm:obsidian_chips"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "minecraft:obsidian"
+    }
+  }

@@ -1,0 +1,18 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:adamantium_ingot"},
+      {"item": "mite_ctm:adamantium_ingot"},
+      {"item": "mite_ctm:adamantium_ingot"},
+      {"item": "mite_ctm:adamantium_ingot"},
+      {"item": "mite_ctm:adamantium_ingot"},
+      {"item": "mite_ctm:adamantium_ingot"},
+      {"item": "mite_ctm:adamantium_ingot"},
+      {"item": "mite_ctm:adamantium_ingot"},
+      {"item": "mite_ctm:adamantium_ingot"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "mite_ctm:adamantium_block"
+    }
+  }

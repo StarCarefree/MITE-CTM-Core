@@ -1,0 +1,10 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:copper_arrow"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "mite_ctm:copper_nuggets"
+    }
+  }

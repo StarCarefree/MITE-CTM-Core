@@ -1,0 +1,10 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:silver_block"}
+    ],
+    "result": {
+      "count": 9,
+      "id": "mite_ctm:silver_ingot"
+    }
+  }

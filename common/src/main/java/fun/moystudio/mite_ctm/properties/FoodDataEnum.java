@@ -6,6 +6,7 @@ import net.minecraft.world.item.Items;
 
 public enum FoodDataEnum {
     APPLE(FoodItemProperties.create(Items.APPLE, FoodDataManager.create(0,8000,4800))),
+    BLUEBERRIES(FoodItemProperties.create(ModFood.BLUEBERRIES.get(), FoodDataManager.create(0,8000,4800))),
 //    WHEAT_SEEDS(FoodItemProperties.create(Items.WHEAT_SEEDS), FoodDataManager.create(0,0,0));
     CAKE(FoodItemProperties.create(Items.CAKE, FoodDataManager.create(16000,0,0))),
     PORKCHOP(FoodItemProperties.create(Items.PORKCHOP, FoodDataManager.create(32000,0,0))),
@@ -51,7 +52,6 @@ public enum FoodDataEnum {
     BANANA(FoodItemProperties.create(ModFood.BANANA.get(), FoodDataManager.create(0,8000,4800))),
     MASHED_POTATO(FoodItemProperties.create(ModFood.MASHED_POTATO.get(), FoodDataManager.create(64000,0,0))),
     SORBET(FoodItemProperties.create(ModFood.SORBET.get(), FoodDataManager.create(16000,0,9600))),
-    BLUEBERRIES(FoodItemProperties.create(ModFood.BLUEBERRIES.get(), FoodDataManager.create(0,8000,4800))),
     PORRIDGE(FoodItemProperties.create(ModFood.PORRIDGE.get(), FoodDataManager.create(0,16000,9600))),
     CEREAL(FoodItemProperties.create(ModFood.CEREAL.get(), FoodDataManager.create(16000,0,4800))),
     WORM(FoodItemProperties.create(ModFood.WORM.get(), FoodDataManager.create(8000,0,0))),

@@ -1,0 +1,10 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:ancient_metal_nuggets"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "mite_ctm:ancient_metal_coin"
+    }
+  }

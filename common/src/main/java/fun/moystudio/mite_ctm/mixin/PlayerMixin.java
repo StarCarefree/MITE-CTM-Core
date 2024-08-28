@@ -4,8 +4,12 @@ import fun.moystudio.mite_ctm.effect.ModEffect;
 import fun.moystudio.mite_ctm.pubilc_interface.IFoodDataManager;
 import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -54,34 +58,42 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
         else{
             this.setSpeed(0.1F);
         }
-        if(((IFoodDataManager)foodData).get().getIsl()>=48000&&((IFoodDataManager)foodData).get().getIsl()<96000) {
-            if((!this.hasEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE))||(this.getEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE).getAmplifier()!=0)){
+        int isl=((IFoodDataManager)foodData).get().getIsl();
+        boolean hasInsulinRes=this.hasEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
+        MobEffectInstance getInsulinRes=hasInsulinRes?this.getEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE):null;
+        if(isl>=48000&&isl<96000) {
+            if((!hasInsulinRes||getInsulinRes.getAmplifier()!=0)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
                 this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl()),this);
                 LOGGER.info("AddIsl0");
             }
-        } else if (((IFoodDataManager)foodData).get().getIsl()>=96000&&((IFoodDataManager)foodData).get().getIsl()<144000) {
-            if((!this.hasEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE))||(this.getEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE).getAmplifier()!=1)){
+        } else if (isl>=96000&&isl<144000) {
+            if((!hasInsulinRes||getInsulinRes.getAmplifier()!=1)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
                 this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),1),this);
                 LOGGER.info("AddIsl1");
             }
-        } else if (((IFoodDataManager)foodData).get().getIsl()>=144000){
-            if((!this.hasEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE))||(this.getEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE).getAmplifier()!=2)){
+        } else if (isl>=144000){
+            if((!hasInsulinRes||getInsulinRes.getAmplifier()!=2)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
                 this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),2),this);
                 LOGGER.info("AddIsl2");
             }
         }
-        if(((IFoodDataManager)foodData).get().getPtt()<=160000*0.05||((IFoodDataManager)foodData).get().getPtn()<=160000*0.05){
-            if(!this.hasEffect((Holder<MobEffect>) ModEffect.MALNOURISHED)){
+        int ptt=((IFoodDataManager)foodData).get().getPtt(),ptn=((IFoodDataManager)foodData).get().getPtn();
+        boolean hasMalnourished=this.hasEffect((Holder<MobEffect>) ModEffect.MALNOURISHED);
+        if(ptt<=(int)(160000*0.05)||ptn<=(int)(160000*0.05)){
+            if(!hasMalnourished){
                 this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.MALNOURISHED, MobEffectInstance.INFINITE_DURATION),this);
             }
         }
         else{
-            if(this.hasEffect((Holder<MobEffect>) ModEffect.MALNOURISHED)) {
+            if(!hasMalnourished) {
                 this.removeEffect((Holder<MobEffect>) ModEffect.MALNOURISHED);
             }
+        }
+        if(this.hasEffect(MobEffects.POISON)&&(25>>this.getEffect(MobEffects.POISON).getAmplifier())>0?(this.getEffect(MobEffects.POISON).getDuration()%(25>>this.getEffect(MobEffects.POISON).getAmplifier())==0):true&&this.getHealth()==1.0F){
+            this.hurt(new DamageSource(this.damageSources().magic().typeHolder()),1.0F);
         }
     }
 

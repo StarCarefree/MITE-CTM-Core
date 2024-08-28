@@ -1,0 +1,12 @@
+{
+    "type": "smelting",
+    "cookingtime": 200,
+    "experience": 0.7,
+    "group": "raw_adamantium",
+    "ingredient": {
+        "item": "mite_ctm:raw_adamantium"
+    },
+    "result": {
+        "id": "mite_ctm:adamantium_ingot"
+    }
+}
