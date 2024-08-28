@@ -6,7 +6,6 @@ import fun.moystudio.mite_ctm.MITE_CTM;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 
 public class ModItem {
     public static final DeferredRegister<Item> ITEMS=DeferredRegister.create(MITE_CTM.MOD_ID, Registries.ITEM);

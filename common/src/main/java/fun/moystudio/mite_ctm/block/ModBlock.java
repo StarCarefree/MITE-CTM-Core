@@ -14,21 +14,21 @@ import java.util.function.Supplier;
 
 public class ModBlock {
     public static final DeferredRegister<Block> BLOCKS=DeferredRegister.create(MITE_CTM.MOD_ID, Registries.BLOCK);
+    private static <T extends Block>RegistrySupplier<Item> registryBlockItem(String name,RegistrySupplier<T> block,int maxx){
+        return ModItem.ITEMS.register(name,()->new BlockItem(block.get(),new Item.Properties().stacksTo(maxx).arch$tab(CreativeModeTabs.INGREDIENTS)));
+    }
     private static <T extends Block>RegistrySupplier<T> registerBlock(String name, Supplier<T> block,int maxx){
         RegistrySupplier<T> rt = BLOCKS.register(name,block);
         registryBlockItem(name,rt,maxx);
         return rt;
     }
-    private static <T extends Block>RegistrySupplier<Item> registryBlockItem(String name,RegistrySupplier<T> block,int maxx){
-        return ModItem.ITEMS.register(name,()->new BlockItem(block.get(),new Item.Properties().stacksTo(maxx).arch$tab(CreativeModeTabs.INGREDIENTS)));
-    }
 
     public static final RegistrySupplier<Block> MITHRIL_BLOCK=registerBlock("mithril_block",()->
-            new IngotBlock(5F, SoundType.STONE),5);
+            new IngotBlock(5F, SoundType.STONE),4);
     public static final RegistrySupplier<Block> SILVER_BLOCK=registerBlock("silver_block",()->
-            new IngotBlock(5F, SoundType.STONE),3);
+            new IngotBlock(5F, SoundType.STONE),4);
     public static final RegistrySupplier<Block> ADAMANTIUM_BLOCK=registerBlock("adamantium_block",()->
-            new IngotBlock(5F, SoundType.STONE),6);
+            new IngotBlock(5F, SoundType.STONE),4);
     public static final RegistrySupplier<Block> ANCIENT_METAL_BLOCK=registerBlock("ancient_metal_block",()->
             new IngotBlock(4F, SoundType.STONE),4);
 
