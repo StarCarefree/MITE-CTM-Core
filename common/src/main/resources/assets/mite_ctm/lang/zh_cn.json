@@ -2,13 +2,14 @@
   "block.mite_ctm.mithril_block": "秘银块",
   "block.mite_ctm.silver_block": "银块",
   "block.mite_ctm.adamantium_block": "艾德曼块",
+  "block.mite_ctm.ancient_metal_block": "远古金属块",
   "block.mite_ctm.mithril_ore": "秘银矿石",
   "block.mite_ctm.silver_ore": "银矿石",
   "block.mite_ctm.adamantium_ore": "艾德曼矿石",
   "item.mite_ctm.raw_mithril": "粗秘银",
   "item.mite_ctm.raw_silver": "粗银",
   "item.mite_ctm.raw_adamantium": "粗艾德曼",
-  "effect.mite_ctm.insulin_resistance": "胰岛素抵抗",
+  "effect.mite_ctm.insulin_resistance": "糖尿病",
   "effect.mite_ctm.malnourished": "营养不良",
   "item.mite_ctm.copper_bucket": "铜桶",
   "item.mite_ctm.silver_bucket": "银桶",
@@ -89,5 +90,7 @@
   "category.mite_ctm.main": "Minecraft Is Too Easy：灾变",
   "chat.mite_ctm.cheating": "§c§l[作弊检测]§4%1$s §c尝试将游戏模式切换成 %2$s！\n§b§l[MITE-CTM] §c已经阻止了这种行为！",
   "command.mite_ctm.stats": "§b§l[MITE-CTM]游戏信息:\n§a玩家名称:%s\n§c玩家UUID:%s\n§7----------------\n§6经验等级:%s\n§6经验总量:%s\n§7----------------\n§2植物营养素:%s\n§e蛋白质:%s",
+  "gui.mite_ctm.difficulty": "噩梦",
+  "gui.mite_ctm.difficulty.info": "你不觉得Minecraft太简单了吗？我们让他变的更难了“一点点”。祝你好运！",
   "item.mite_ctm.bilibili_coin": "§d§l哔站 §r§d硬币"
 }
