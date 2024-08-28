@@ -29,7 +29,8 @@ public class ModBlock {
             new IngotBlock(5F, SoundType.STONE),3);
     public static final RegistrySupplier<Block> ADAMANTIUM_BLOCK=registerBlock("adamantium_block",()->
             new IngotBlock(5F, SoundType.STONE),6);
-
+    public static final RegistrySupplier<Block> ANCIENT_METAL_BLOCK=registerBlock("ancient_metal_block",()->
+            new IngotBlock(4F, SoundType.STONE),4);
 
     public static final RegistrySupplier<Block> MITHRIL_ORE=registerBlock("mithril_ore",()->
             new OreBlock(3F,SoundType.STONE,2,4),4);

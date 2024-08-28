@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:nether_quartz_shard"},
+      {"item": "mite_ctm:nether_quartz_shard"},
+      {"item": "mite_ctm:nether_quartz_shard"},
+      {"item": "mite_ctm:nether_quartz_shard"},
+      {"item": "mite_ctm:nether_quartz_shard"},
+      {"item": "mite_ctm:nether_quartz_shard"},
+      {"item": "mite_ctm:nether_quartz_shard"},
+      {"item": "mite_ctm:nether_quartz_shard"},
+      {"item": "mite_ctm:nether_quartz_shard"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "minecraft:quartz"
+    }
+  }

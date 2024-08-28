@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:diamond_chips"},
+      {"item": "mite_ctm:diamond_chips"},
+      {"item": "mite_ctm:diamond_chips"},
+      {"item": "mite_ctm:diamond_chips"},
+      {"item": "mite_ctm:diamond_chips"},
+      {"item": "mite_ctm:diamond_chips"},
+      {"item": "mite_ctm:diamond_chips"},
+      {"item": "mite_ctm:diamond_chips"},
+      {"item": "mite_ctm:diamond_chips"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "minecraft:diamond"
+    }
+  }

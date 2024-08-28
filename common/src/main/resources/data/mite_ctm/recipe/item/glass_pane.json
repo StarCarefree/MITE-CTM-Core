@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {"item": "mite_ctm:glass_shard"},
+      {"item": "mite_ctm:glass_shard"},
+      {"item": "mite_ctm:glass_shard"},
+      {"item": "mite_ctm:glass_shard"},
+      {"item": "mite_ctm:glass_shard"},
+      {"item": "mite_ctm:glass_shard"},
+      {"item": "mite_ctm:glass_shard"},
+      {"item": "mite_ctm:glass_shard"},
+      {"item": "mite_ctm:glass_shard"}
+    ],
+    "result": {
+      "count": 1,
+      "id": "minecraft:glass_pane"
+    }
+  }

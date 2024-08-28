@@ -7,8 +7,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 
-import java.util.function.Supplier;
-
 public class ModEffect {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS=DeferredRegister.create(MITE_CTM.MOD_ID, Registries.MOB_EFFECT);
     public static final RegistrySupplier<MobEffect> INSULIN_RESISTANCE=MOB_EFFECTS.register("insulin_resistance",() ->

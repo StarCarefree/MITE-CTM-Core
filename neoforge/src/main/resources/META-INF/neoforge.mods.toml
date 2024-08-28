@@ -36,6 +36,3 @@ side = "BOTH"
 
 [[mixins]]
 config = "mite_ctm.mixins.json"
-
-[[accessTransformers]]
-file="META-INF/accesstransformer.cfg"

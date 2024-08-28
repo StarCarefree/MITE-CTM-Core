@@ -65,19 +65,16 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
             if((!hasInsulinRes||getInsulinRes.getAmplifier()!=0)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
                 this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl()),this);
-                LOGGER.info("AddIsl0");
             }
         } else if (isl>=96000&&isl<144000) {
             if((!hasInsulinRes||getInsulinRes.getAmplifier()!=1)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
                 this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),1),this);
-                LOGGER.info("AddIsl1");
             }
         } else if (isl>=144000){
             if((!hasInsulinRes||getInsulinRes.getAmplifier()!=2)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
                 this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),2),this);
-                LOGGER.info("AddIsl2");
             }
         }
         int ptt=((IFoodDataManager)foodData).get().getPtt(),ptn=((IFoodDataManager)foodData).get().getPtn();
@@ -91,9 +88,6 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
             if(!hasMalnourished) {
                 this.removeEffect((Holder<MobEffect>) ModEffect.MALNOURISHED);
             }
-        }
-        if(this.hasEffect(MobEffects.POISON)&&(25>>this.getEffect(MobEffects.POISON).getAmplifier())>0?(this.getEffect(MobEffects.POISON).getDuration()%(25>>this.getEffect(MobEffects.POISON).getAmplifier())==0):true&&this.getHealth()==1.0F){
-            this.hurt(new DamageSource(this.damageSources().magic().typeHolder()),1.0F);
         }
     }
 
