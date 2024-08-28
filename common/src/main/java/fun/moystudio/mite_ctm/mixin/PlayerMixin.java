@@ -1,9 +1,10 @@
 package fun.moystudio.mite_ctm.mixin;
 
-import fun.moystudio.mite_ctm.MITE_CTM;
 import fun.moystudio.mite_ctm.effect.ModEffect;
 import fun.moystudio.mite_ctm.pubilc_interface.IFoodDataManager;
 import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
+import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -32,6 +33,8 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
 
     @Shadow @Final private static Logger LOGGER;
 
+    @Shadow public abstract boolean hasContainerOpen();
+
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -51,39 +54,33 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
         else{
             this.setSpeed(0.1F);
         }
-        if(((IFoodDataManager)foodData).get().getIsl()>=48000){
-            if(((IFoodDataManager)foodData).get().getIsl()>=96000){
-                if(((IFoodDataManager)foodData).get().getIsl()>=144000){
-                    if(this.hasEffect(ModEffect.INSULIN_RESISTANCE)&&this.getEffect(ModEffect.INSULIN_RESISTANCE).getAmplifier()!=2){
-                        this.removeEffect(ModEffect.INSULIN_RESISTANCE);
-                    }
-                    this.addEffect(new MobEffectInstance(ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),2));
-                    LOGGER.info("AddIsl");
-                }
-                else{
-                    if(this.hasEffect(ModEffect.INSULIN_RESISTANCE)&&this.getEffect(ModEffect.INSULIN_RESISTANCE).getAmplifier()!=1){
-                        this.removeEffect(ModEffect.INSULIN_RESISTANCE);
-                    }
-                    this.addEffect(new MobEffectInstance(ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),1));
-                    LOGGER.info("AddIsl");
-                }
+        if(((IFoodDataManager)foodData).get().getIsl()>=48000&&((IFoodDataManager)foodData).get().getIsl()<96000) {
+            if((!this.hasEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE))||(this.getEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE).getAmplifier()!=0)){
+                this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
+                this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl()),this);
+                LOGGER.info("AddIsl0");
             }
-            else{
-                if(this.hasEffect(ModEffect.INSULIN_RESISTANCE)&&this.getEffect(ModEffect.INSULIN_RESISTANCE).getAmplifier()!=0){
-                    this.removeEffect(ModEffect.INSULIN_RESISTANCE);
-                }
-                this.addEffect(new MobEffectInstance(ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl()));
-                LOGGER.info("AddIsl");
+        } else if (((IFoodDataManager)foodData).get().getIsl()>=96000&&((IFoodDataManager)foodData).get().getIsl()<144000) {
+            if((!this.hasEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE))||(this.getEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE).getAmplifier()!=1)){
+                this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
+                this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),1),this);
+                LOGGER.info("AddIsl1");
+            }
+        } else if (((IFoodDataManager)foodData).get().getIsl()>=144000){
+            if((!this.hasEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE))||(this.getEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE).getAmplifier()!=2)){
+                this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
+                this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),2),this);
+                LOGGER.info("AddIsl2");
             }
         }
         if(((IFoodDataManager)foodData).get().getPtt()<=160000*0.05||((IFoodDataManager)foodData).get().getPtn()<=160000*0.05){
-            if(!this.hasEffect(ModEffect.MALNOURISHED)){
-                this.addEffect(new MobEffectInstance(ModEffect.MALNOURISHED, MobEffectInstance.INFINITE_DURATION));
+            if(!this.hasEffect((Holder<MobEffect>) ModEffect.MALNOURISHED)){
+                this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.MALNOURISHED, MobEffectInstance.INFINITE_DURATION),this);
             }
         }
         else{
-            if(this.hasEffect(ModEffect.MALNOURISHED)) {
-                this.removeEffect(ModEffect.MALNOURISHED);
+            if(this.hasEffect((Holder<MobEffect>) ModEffect.MALNOURISHED)) {
+                this.removeEffect((Holder<MobEffect>) ModEffect.MALNOURISHED);
             }
         }
     }

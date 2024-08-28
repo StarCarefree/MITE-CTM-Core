@@ -1,13 +1,15 @@
 {
   "block.mite_ctm.mithril_block": "Block of Mithril",
-  "block.mite_ctm.copper_block": "Block of Copper",
   "block.mite_ctm.silver_block": "Block of Silver",
   "block.mite_ctm.adamantium_block": "Block of Adamantium",
 
   "block.mite_ctm.mithril_ore": "Mithril Ore",
-  "block.mite_ctm.copper_ore": "Copper Ore",
   "block.mite_ctm.silver_ore": "Silver Ore",
   "block.mite_ctm.adamantium_ore": "Adamantium Ore",
+  
+  "item.mite_ctm.raw_mithril": "Raw Mithril",
+  "item.mite_ctm.raw_silver": "Raw Silver",
+  "item.mite_ctm.raw_adamantium": "Raw Adamantium",
 
   "effect.mite_ctm.insulin_resistance": "Insulin Resistance",
   "effect.mite_ctm.malnourished": "Malnourished",
@@ -20,7 +22,6 @@
   "item.mite_ctm.adamantium_bucket": "Adamantium Bucket",
 
   "item.mite_ctm.mithril_ingot": "Mithril Ingot",
-  "item.mite_ctm.copper_ingot": "Copper Ingot",
   "item.mite_ctm.silver_ingot": "Silver Ingot",
   "item.mite_ctm.ancient_metal": "Ancient Metal",
   "item.mite_ctm.adamantium_ingot": "Adamantium Ingot",
@@ -51,10 +52,6 @@
   "item.mite_ctm.ancient_metal_coin": "Ancient Metal Coin",
   "item.mite_ctm.mithril_coin": "Mithril Coin",
   "item.mite_ctm.adamantium_coin": "Adamantium Coin",
-
-  "item.mite_ctm.raw_mithril": "Raw Mithril",
-  "item.mite_ctm.raw_silver": "Raw Silver",
-  "item.mite_ctm.raw_adamantium": "Raw Adamantium",
 
   "item.mite_ctm.copper_nuggets": "Copper Nuggets",
   "item.mite_ctm.silver_nuggets": "Silver Nuggets",

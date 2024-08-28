@@ -13,6 +13,7 @@ public class EffectInsulinResistance extends MobEffect {
     protected EffectInsulinResistance(MobEffectCategory mobEffectCategory, int i) {
         super(mobEffectCategory, i);
     }
+
     @Override
     public boolean applyEffectTick(LivingEntity livingEntity,int i){
         if(livingEntity instanceof Player){
@@ -30,12 +31,13 @@ public class EffectInsulinResistance extends MobEffect {
                     }
                 }
             }
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
     public boolean shouldApplyEffectTickThisTick(int i, int j){
-        return i>1;
+        return i>0;
     }
 }

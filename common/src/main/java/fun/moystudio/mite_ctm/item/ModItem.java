@@ -51,8 +51,6 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> MITHRIL_INGOT=ITEMS.register("mithril_ingot",()->
             new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银锭
-    public static final RegistrySupplier<Item> COPPER_INGOT=ITEMS.register("copper_ingot",()->
-            new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//铜锭
     public static final RegistrySupplier<Item> SILVER_INGOT=ITEMS.register("silver_ingot",()->
             new Item(new Item.Properties().stacksTo(8).arch$tab(CreativeModeTabs.INGREDIENTS)));//银锭
     public static final RegistrySupplier<Item> ANCIENT_METAL=ITEMS.register("ancient_metal",()->

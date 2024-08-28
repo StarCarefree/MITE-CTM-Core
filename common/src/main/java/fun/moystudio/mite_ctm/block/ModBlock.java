@@ -25,8 +25,6 @@ public class ModBlock {
 
     public static final RegistrySupplier<Block> MITHRIL_BLOCK=registerBlock("mithril_block",()->
             new IngotBlock(5F, SoundType.STONE),5);
-    public static final RegistrySupplier<Block> COPPER_BLOCK=registerBlock("copper_block",()->
-            new IngotBlock(5F, SoundType.STONE),3);
     public static final RegistrySupplier<Block> SILVER_BLOCK=registerBlock("silver_block",()->
             new IngotBlock(5F, SoundType.STONE),3);
     public static final RegistrySupplier<Block> ADAMANTIUM_BLOCK=registerBlock("adamantium_block",()->
@@ -35,8 +33,6 @@ public class ModBlock {
 
     public static final RegistrySupplier<Block> MITHRIL_ORE=registerBlock("mithril_ore",()->
             new OreBlock(3F,SoundType.STONE,2,4),4);
-    public static final RegistrySupplier<Block> COPPER_ORE=registerBlock("copper_ore",()->
-            new OreBlock(2F, SoundType.STONE,2,4),4);
     public static final RegistrySupplier<Block> SILVER_ORE=registerBlock("silver_ore",()->
        new OreBlock(2F, SoundType.STONE,2,4),4);
     public static final RegistrySupplier<Block> ADAMANTIUM_ORE=registerBlock("adamantium_ore",()->
