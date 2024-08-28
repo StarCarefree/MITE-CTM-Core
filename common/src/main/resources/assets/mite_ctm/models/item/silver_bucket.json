@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mite_ctm:item/sliver_bucket"
+    "layer0": "mite_ctm:item/silver_bucket"
   }
 }

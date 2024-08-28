@@ -4,12 +4,8 @@ import fun.moystudio.mite_ctm.effect.ModEffect;
 import fun.moystudio.mite_ctm.pubilc_interface.IFoodDataManager;
 import fun.moystudio.mite_ctm.pubilc_interface.IMaxFoodLevel;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -36,8 +32,6 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
     @Shadow public abstract FoodData getFoodData();
 
     @Shadow @Final private static Logger LOGGER;
-
-    @Shadow public abstract boolean hasContainerOpen();
 
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
