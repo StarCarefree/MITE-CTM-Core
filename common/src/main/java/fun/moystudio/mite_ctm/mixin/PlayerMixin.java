@@ -94,7 +94,7 @@ public abstract class PlayerMixin extends LivingEntity {
         if(this.tickCount%(64*20)==0&&this.foodData.getFoodLevel()>=((IMaxFoodLevel)this.foodData).getMaxFoodLevel()*0.5&&!this.hasEffect(ModEffect.MALNOURISHED)){
             this.heal(1.0F);
         }
-        else if(this.tickCount%(256*20)==0&&this.foodData.getFoodLevel()>=((IMaxFoodLevel)this.foodData).getMaxFoodLevel()*0.5&&this.git(ModEffect.MALNOURISHED)){
+        else if(this.tickCount%(256*20)==0&&this.foodData.getFoodLevel()>=((IMaxFoodLevel)this.foodData).getMaxFoodLevel()*0.5&&this.hasEffect(ModEffect.MALNOURISHED)){
             this.heal(1.0F);
         }
     }
