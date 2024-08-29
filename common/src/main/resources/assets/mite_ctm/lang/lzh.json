@@ -2,6 +2,7 @@
   "block.mite_ctm.mithril_block": "秘银块",
   "block.mite_ctm.silver_block": "银块",
   "block.mite_ctm.adamantium_block": "艾德曼块",
+  "block.mite_ctm.ancient_metal_block": "太古金块",
   "block.mite_ctm.mithril_ore": "秘银石",
   "block.mite_ctm.silver_ore": "银矿石",
   "block.mite_ctm.adamantium_ore": "艾德曼矿石",
@@ -89,5 +90,7 @@
   "category.mite_ctm.main": "Minecraft Is Too Easy：灾变",
   "chat.mite_ctm.cheating": "§c§l[为弊验功器]§4%1$s §c试以戏概为 %2$s！\n§b§l[MITE-CTM] §c已止之！",
   "command.mite_ctm.stats": "§b§l[MITE-CTM]戏立游戏数：\n§a玩家之名：%s\n§c玩家UUID：%s\n§7----------------\n§6经验等级：%s\n§6经验总量：%s\n§7----------------\n§2营养素：%s\n§e蛋白质：%s",
+  "gui.mite_ctm.difficulty": "天之灾也",
+  "gui.mite_ctm.difficulty.info": "子不以此戏易乎？我使之为难也。祝汝好运！",
   "item.mite_ctm.bilibili_coin": "§d§l哔站 §r§d币"
 }
