@@ -2,6 +2,7 @@
   "block.mite_ctm.mithril_block": "秘銀塊",
   "block.mite_ctm.silver_block": "秘銀塊",
   "block.mite_ctm.adamantium_block": "艾德曼塊",
+  "block.mite_ctm.ancient_metal_block": "遠古金屬塊",
   "block.mite_ctm.mithril_ore": "秘銀礦石",
   "block.mite_ctm.silver_ore": "銀礦石",
   "block.mite_ctm.adamantium_ore": "艾德曼礦石",
@@ -89,5 +90,7 @@
   "category.mite_ctm.main": "Minecraft Is Too Easy：災變",
   "chat.mite_ctm.cheating": "§c§l[作弊檢測]§a%1$s §c嘗試將遊戲模式轉為 %2$s！\n§b§l[MITE-CTM] §c已經阻止這種行為！",
   "command.mite_ctm.stats": "§b§l[MITE-CTM]遊戲資訊：\n§a玩家名稱：%s\n§c玩家UUID：%s\n§7----------------\n§6經驗等級：%s\n§6經驗總量：%s\n§7----------------\n§2植物營養素：%s\n§e蛋白質：%s",
+  "gui.mite_ctm.difficulty": "災難",
+  "gui.mite_ctm.difficulty.info": "你不覺得 Minecraft 太簡單了嗎？ 我們讓它變的「稍微」難了點， 祝你好運！",
   "item.mite_ctm.bilibili_coin": "§d§l哔站 §r§d硬币"
 }
