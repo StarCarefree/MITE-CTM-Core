@@ -13,8 +13,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.level.Level;
-import org.slf4j.Logger;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,25 +22,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
-public abstract class PlayerMixin extends LivingEntity implements IFoodDataManager {
+public abstract class PlayerMixin extends LivingEntity {
     @Shadow public int experienceLevel;
 
     @Shadow protected FoodData foodData;
 
-    @Shadow public abstract FoodData getFoodData();
-
-    @Shadow @Final private static Logger LOGGER;
-
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
     }
-
+    
     @Inject(method = "tick", at = @At("TAIL"))
     public void tickMixin(CallbackInfo ci){
         ((IMaxFoodLevel)foodData).setMaxFoodLevel(Math.min(20,6+experienceLevel/5*2));
         ((IFoodDataManager)foodData).get().setIsl(((IFoodDataManager)foodData).get().getIsl()-1);//均为每tick降低1（每分钟降低1200）
         ((IFoodDataManager)foodData).get().setPtt(((IFoodDataManager)foodData).get().getPtt()-1);//均为每tick降低1（每分钟降低1200）
         ((IFoodDataManager)foodData).get().setPtn(((IFoodDataManager)foodData).get().getPtn()-1);//均为每tick降低1（每分钟降低1200）
+        //基本数值计算
         this.getAttributes().getInstance(Attributes.MAX_HEALTH).setBaseValue(Math.min(20,6+experienceLevel/5*2));
         this.getAttributes().getInstance(Attributes.BLOCK_BREAK_SPEED).setBaseValue(1+0.02*experienceLevel);
         foodData.setFoodLevel(Math.min(foodData.getFoodLevel(),((IMaxFoodLevel)foodData).getMaxFoodLevel()));
@@ -52,36 +47,36 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
         else{
             this.setSpeed(0.1F);
         }
+        //糖尿病判定
         int isl=((IFoodDataManager)foodData).get().getIsl();
         boolean hasInsulinRes=this.hasEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
         MobEffectInstance getInsulinRes=hasInsulinRes?this.getEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE):null;
-        if(isl>=48000&&isl<96000) {
+        if((isl>=48000)&&(isl<96000)) {
             if((!hasInsulinRes||getInsulinRes.getAmplifier()!=0)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
-                this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl()),this);
+                this.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl()),this);
             }
-        } else if (isl>=96000&&isl<144000) {
+        } else if ((isl>=96000)&&(isl<144000)) {
             if((!hasInsulinRes||getInsulinRes.getAmplifier()!=1)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
-                this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),1),this);
+                this.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),1),this);
             }
         } else if (isl>=144000){
             if((!hasInsulinRes||getInsulinRes.getAmplifier()!=2)){
                 this.removeEffect((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE);
-                this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),2),this);
+                this.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.INSULIN_RESISTANCE,((IFoodDataManager)foodData).get().getIsl(),2),this);
             }
         }
+        //营养不良判定
         int ptt=((IFoodDataManager)foodData).get().getPtt(),ptn=((IFoodDataManager)foodData).get().getPtn();
         boolean hasMalnourished=this.hasEffect((Holder<MobEffect>) ModEffect.MALNOURISHED);
-        if(ptt<=(int)(160000*0.05)||ptn<=(int)(160000*0.05)){
+        if((ptt<=(int)(160000*0.05))||(ptn<=(int)(160000*0.05))){
             if(!hasMalnourished){
-                this.forceAddEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.MALNOURISHED, MobEffectInstance.INFINITE_DURATION),this);
+                this.addEffect(new MobEffectInstance((Holder<MobEffect>) ModEffect.MALNOURISHED, MobEffectInstance.INFINITE_DURATION),this);
             }
         }
         else{
-            if(!hasMalnourished) {
-                this.removeEffect((Holder<MobEffect>) ModEffect.MALNOURISHED);
-            }
+            this.removeEffect((Holder<MobEffect>) ModEffect.MALNOURISHED);
         }
     }
 
@@ -99,7 +94,7 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
         if(this.tickCount%(64*20)==0&&this.foodData.getFoodLevel()>=((IMaxFoodLevel)this.foodData).getMaxFoodLevel()*0.5&&!this.hasEffect(ModEffect.MALNOURISHED)){
             this.heal(1.0F);
         }
-        else if(this.tickCount%(256*20)==0&&this.foodData.getFoodLevel()>=((IMaxFoodLevel)this.foodData).getMaxFoodLevel()*0.5&&this.hasEffect(ModEffect.MALNOURISHED)){
+        else if(this.tickCount%(256*20)==0&&this.foodData.getFoodLevel()>=((IMaxFoodLevel)this.foodData).getMaxFoodLevel()*0.5&&this.git(ModEffect.MALNOURISHED)){
             this.heal(1.0F);
         }
     }
@@ -114,7 +109,7 @@ public abstract class PlayerMixin extends LivingEntity implements IFoodDataManag
         if (this.getHealth() <= 1.0F) {
             ci.cancel();
         }
-        if (this.getFoodData().getFoodLevel() <= 0) {
+        if (this.foodData.getFoodLevel() <= 0) {
             ci.cancel();
         }
     }

@@ -110,21 +110,21 @@ public class ModItem {
 
 
     public static final RegistrySupplier<Item> COPPER_BUCKET=ITEMS.register("copper_bucket",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//铜桶
+            new Item(new Item.Properties().stacksTo(1).arch$tab(CreativeModeTabs.INGREDIENTS)));//铜桶
     public static final RegistrySupplier<Item> SILVER_BUCKET=ITEMS.register("silver_bucket",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//银桶
+            new Item(new Item.Properties().stacksTo(1).arch$tab(CreativeModeTabs.INGREDIENTS)));//银桶
     public static final RegistrySupplier<Item> GOLDEN_BUCKET=ITEMS.register("golden_bucket",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//金桶
+            new Item(new Item.Properties().stacksTo(1).arch$tab(CreativeModeTabs.INGREDIENTS)));//金桶
     public static final RegistrySupplier<Item> ANCIENT_METAL_BUCKET=ITEMS.register("ancient_metal_bucket",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//远古金属桶
+            new Item(new Item.Properties().stacksTo(1).arch$tab(CreativeModeTabs.INGREDIENTS)));//远古金属桶
     public static final RegistrySupplier<Item> MITHRIL_BUCKET=ITEMS.register("mithril_bucket",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银桶
+            new Item(new Item.Properties().stacksTo(1).arch$tab(CreativeModeTabs.INGREDIENTS)));//秘银桶
     public static final RegistrySupplier<Item> ADAMANTIUM_BUCKET=ITEMS.register("adamantium_bucket",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//艾德曼桶
+            new Item(new Item.Properties().stacksTo(1).arch$tab(CreativeModeTabs.INGREDIENTS)));//艾德曼桶
 
 
     public static final RegistrySupplier<Item> BILIBILI_COIN=ITEMS.register("bilibili_coin",()->
-            new Item(new Item.Properties().arch$tab(CreativeModeTabs.INGREDIENTS)));//币（？）
+            new Item(new Item.Properties().stacksTo(23).arch$tab(CreativeModeTabs.INGREDIENTS)));//币（？）
 
 
     public static void register(){
