@@ -124,6 +124,5 @@ public class ModFood {
             new Item(new Item.Properties().food(FOOD_COOKED_WORM).stacksTo(16).arch$tab(CreativeModeTabs.FOOD_AND_DRINKS)));
 
     public static void register(){
-
     }
 }

@@ -14,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 
 public final class MITE_CTM {
     public static final String MOD_ID = "mite_ctm";
-    public static Logger LOGGER=LogManager.getLogger("Minecraft Is Too Easy:Cataclysm");
+    public static final Logger LOGGER=LogManager.getLogger("Minecraft Is Too Easy:Cataclysm");
     public static void init() {
         LOGGER.info("Initalizing MITE-CTM!");
         ModEffect.register();
