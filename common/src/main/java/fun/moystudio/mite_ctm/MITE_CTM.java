@@ -16,7 +16,7 @@ public final class MITE_CTM {
     public static final String MOD_ID = "mite_ctm";
     public static final Logger LOGGER=LogManager.getLogger("Minecraft Is Too Easy:Cataclysm");
     public static void init() {
-        LOGGER.info("Initalizing MITE-CTM!");
+        LOGGER.info("Initializing MITE-CTM!");
         ModEffect.register();
         ModEvent.register();//一定得在Block前面！！！！！
         ModBlock.register();//一定得在Item前面！！！！！
